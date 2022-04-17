@@ -16,8 +16,10 @@ const postJob = asyncHandler(async (req, res) => {
   }
 
   //Check if job already exists
-  const jobExists = await Jobs.find(jobData);
+  const jobExists = await Jobs.findOne(jobData);
   if (jobExists) {
+    console.log(jobData);
+    console.log(jobExists);
     res.status(400);
     throw new Error("Job already created");
   }

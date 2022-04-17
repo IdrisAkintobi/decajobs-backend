@@ -7,6 +7,7 @@ const jobSchema = mongoose.Schema(
     },
     category: {
       type: String,
+      enum: ["Technology", "Finance", "Manufacturing", "Marketing"],
       required: [true, "Please enter job category"],
     },
     closeDate: {

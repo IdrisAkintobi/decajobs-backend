@@ -1,6 +1,6 @@
 import { z } from "zod";
 const JobZodSchema = z.object({
-  category: z.string(),
+  category: z.enum(["Technology", "Finance", "Manufacturing", "Marketing"]),
   closeDate: z.string(),
   companyName: z.string().min(2, { message: "Enter full company name" }),
   description: z.string().min(30, {
