@@ -18,16 +18,16 @@ const JobZodSchema = z.object({
 const EduZodSchema = z.object({
   schoolName: z.string(),
   qualification: z.string(),
-  startDate: z.string(),
-  endDate: z.string(),
+  startDate: z.string().optional(),
+  endDate: z.string().optional(),
 });
 
 const ExpZodSchema = z.object({
-  employer: z.string(),
-  position: z.string(),
-  startDate: z.string(),
-  endDate: z.string(),
-  description: z.string(),
+  employer: z.string().optional(),
+  position: z.string().optional(),
+  startDate: z.string().optional(),
+  endDate: z.string().optional(),
+  description: z.string().optional(),
 });
 
 const ResumeZOdSchema = z.object({
@@ -40,7 +40,7 @@ const ResumeZOdSchema = z.object({
   objective: z.string({ message: "Write your resume objective" }),
   phone: z.string(),
   title: z.string({ message: "Enter preferred tittle" }),
-  website: z.string().url(),
+  website: z.string().optional(),
   skills: z.string().array(),
   experience: ExpZodSchema.optional(),
   education: EduZodSchema,
