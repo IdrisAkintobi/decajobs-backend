@@ -15,7 +15,9 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.0",
-    "zod": "^3.14.4"
+    "zod": "^3.14.4",
+    "colors": "^1.4.0",
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {
     "colors": "^1.4.0",
