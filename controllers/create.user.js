@@ -25,8 +25,8 @@ const createUser = asyncHandler(async (req, res) => {
 
   const user = await User.create(securedData);
   if (user) {
-    const { id, fullName: name, email } = user;
-    res.status(201).json({ id, name, email, token: genToken(id) });
+    const { id, fullName: name, email, role } = user;
+    res.status(201).json({ id, name, email, role, token: genToken(id) });
   } else {
     res.status(400);
     throw new Error("User not created");

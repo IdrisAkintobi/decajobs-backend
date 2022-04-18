@@ -16,7 +16,7 @@ const createResume = asyncHandler(async (req, res) => {
     throw new Error("Login as an Applicant to create resume");
   }
 
-  const resumeExists = await Resume.find(data);
+  const resumeExists = await Resume.findOne(data);
   if (resumeExists) {
     res.status(400);
     throw new Error("Resume already exists");
@@ -24,7 +24,8 @@ const createResume = asyncHandler(async (req, res) => {
 
   try {
     const resume = await Resume.create({ user: user.id, ...data });
-    res.status(201).json(resume);
+    const { FirstName, LastName, email } = resume;
+    res.status(201).json({ FirstName, LastName, email });
   } catch (err) {
     console.log(err);
     res.status(400);

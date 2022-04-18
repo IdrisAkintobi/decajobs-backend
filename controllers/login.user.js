@@ -12,8 +12,8 @@ const loginUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email });
 
   if (user && (await bcrypt.compare(password, user.password))) {
-    const { id, fullName: name, email } = user;
-    res.status(200).json({ id, name, email, token: genToken(id) });
+    const { id, fullName: name, email, role } = user;
+    res.status(200).json({ id, name, email, role, token: genToken(id) });
   } else {
     res.status(400);
     throw new Error("Invalid credentials");

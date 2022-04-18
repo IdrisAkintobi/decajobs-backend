@@ -23,7 +23,7 @@ const getJobs = asyncHandler(async (req, res) => {
     if (allJobs.length) return res.status(200).json(allJobs);
     else
       return res
-        .status(200)
+        .status(400)
         .json({ message: "No available job for your query" });
   }
   if (!category && city && joblist) {
