@@ -1,5 +1,6 @@
 import asyncHandler from "express-async-handler";
 import Jobs from "../model/job.model";
+import { capitalize } from "../config/basic.utils";
 // @desc get Jobs
 // @route GET /joblist
 // @access public
@@ -9,6 +10,9 @@ const getJobs = asyncHandler(async (req, res): Promise<any> => {
   //If value is frontend placeholder make it null
   if (category === "Select Category") category = undefined;
   if (city === "Choose Region") city = undefined;
+
+  //Capitalize before querying database
+  if (joblist) joblist = capitalize(joblist);
 
   const page = +req.query.page! || 1;
   const itemPP = 6;
