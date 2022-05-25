@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import { string } from "zod";
 function genToken(id: string) {
   return jwt.sign({ id }, process.env.JWT_SECRET as string);
 }
@@ -10,4 +11,11 @@ interface User {
   role: string;
 }
 
-export { genToken, User };
+const capitalize = (word: string) => {
+  word
+    .split(" ")
+    .map((i) => `${i.charAt(0).toUpperCase()}${i.slice(1)}`)
+    .join(" ");
+};
+
+export { genToken, User, capitalize };
