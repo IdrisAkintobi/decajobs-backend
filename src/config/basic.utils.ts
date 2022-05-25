@@ -12,7 +12,7 @@ interface User {
 }
 
 const capitalize = (word: string) => {
-  word
+  return word
     .split(" ")
     .map((i) => `${i.charAt(0).toUpperCase()}${i.slice(1)}`)
     .join(" ");
